@@ -1,5 +1,8 @@
 # frozen_string_literal: true
-require 'active_fedora'
+begin
+  require 'active_fedora'
+rescue LoadError
+end
 require 'deprecation'
 
 module Hydra

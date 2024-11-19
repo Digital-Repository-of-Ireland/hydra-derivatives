@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "solr_wrapper"
 
   spec.add_dependency 'active_encode', '~> 1.2'
-  spec.add_dependency 'active-fedora', '>= 14.0'
   spec.add_dependency 'active-triples', '>= 1.2'
   spec.add_dependency 'activesupport', '>= 4.0', '< 8.0'
   spec.add_dependency 'addressable', '~> 2.5'

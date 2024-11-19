@@ -17,10 +17,12 @@ module Hydra::Derivatives
       end
 
       private
-
-        def logger
-          ActiveFedora::Base.logger || ::Logger.new(STDOUT)
-        end
+      
+      def logger
+        return ActiveFedora::Base.logger if defined?(ActiveFedora::Base)
+        return Rails.logger if defined?(Rails)
+        ::Logger.new(STDOUT)
+      end
     end
   end
 end
