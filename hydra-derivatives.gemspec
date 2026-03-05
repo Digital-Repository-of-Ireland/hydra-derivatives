@@ -15,18 +15,18 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency 'bundler', '~> 2.1'
-  spec.add_development_dependency 'fcrepo_wrapper', '~> 0.2'
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'fcrepo_wrapper'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rails', '> 5.1', '< 9.0'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 3.1'
   spec.add_development_dependency "solr_wrapper"
 
-  spec.add_dependency 'active_encode', '~> 1.2'
+  spec.add_dependency 'active_encode'
   spec.add_dependency 'active-triples', '>= 1.2'
   spec.add_dependency 'activesupport', '>= 4.0', '< 9.0'
-  spec.add_dependency 'addressable', '~> 2.5'
+  spec.add_dependency 'addressable'
   spec.add_dependency 'deprecation'
   spec.add_dependency 'mime-types', '> 2.0', '< 4.0'
   spec.add_dependency 'mini_magick', '>= 3.2', '< 5'
