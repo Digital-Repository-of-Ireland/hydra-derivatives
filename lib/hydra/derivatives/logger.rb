@@ -19,9 +19,7 @@ module Hydra::Derivatives
       private
       
       def logger
-        return ActiveFedora::Base.logger if defined?(ActiveFedora::Base)
-        return Rails.logger if defined?(Rails)
-        ::Logger.new(STDOUT)
+        defined?(ActiveFedora::Base) ? ActiveFedora::Base.logger : ::Logger.new(STDOUT)
       end
     end
   end
