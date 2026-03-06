@@ -16,7 +16,7 @@ describe Hydra::Derivatives::Logger do
   end
 
   it "delegates respond_to_missing" do
-    allow(ActiveFedora::Base.logger).to receive(:respond_to_missing?).with(:weird, false).and_return(true)
+    allow_any_instance_of(::Logger).to receive(:respond_to_missing?).with(:weird, false).and_return(true)
     expect(described_class.respond_to_missing?(:weird)).to be_truthy
   end
 

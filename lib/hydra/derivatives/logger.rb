@@ -19,7 +19,7 @@ module Hydra::Derivatives
       private
       
       def logger
-        defined?(ActiveFedora::Base) ? ActiveFedora::Base.logger : ::Logger.new(STDOUT)
+        ::Logger.new(STDOUT)
       end
     end
   end
