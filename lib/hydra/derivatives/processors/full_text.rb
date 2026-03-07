@@ -3,6 +3,8 @@
 module Hydra::Derivatives::Processors
   # Extract the full text from the content using Solr's extract handler
   class FullText < Processor
+    class_attribute :solr_connection_url
+
     # Run the full text extraction and save the result
     # @return [TrueClass,FalseClass] was the process successful.
     def process
@@ -72,7 +74,8 @@ module Hydra::Derivatives::Processors
 
       # @returns [URI] path to the solr collection
       def connection_url
-        ActiveFedora::SolrService.instance.conn.uri
+        raise "No Solr connection URL configured. Set with Hydra::Derivatives::Processors::FullText.solr_connection_url" unless solr_connection_url
+        URI(solr_connection_url)
       end
   end
 end

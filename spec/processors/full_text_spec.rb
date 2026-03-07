@@ -4,7 +4,10 @@ require 'spec_helper'
 describe Hydra::Derivatives::Processors::FullText do
   let(:file_path)  { File.join(fixture_path, 'test.docx') }
   let(:directives) { { format: 'txt', url: RDF::URI('http://localhost:8983/fedora/rest/dev/1234/ogg') } }
-  let(:processor)  { described_class.new(file_path, directives) }
+  let(:processor)  do
+    described_class.solr_connection_url = ActiveFedora::SolrService.instance.conn.uri.to_s
+    described_class.new(file_path, directives)
+  end
   let(:http_options) do
     {
       use_ssl: nil
@@ -106,15 +109,15 @@ describe Hydra::Derivatives::Processors::FullText do
   describe "uri" do
     subject { processor.send(:uri) }
 
-    let(:root) { URI('https://example.com/solr/myCollection/') }
-
-    before do
-      allow(ActiveFedora::SolrService.instance.conn).to receive(:uri).and_return(root)
-    end
-
     it "points at the extraction service" do
+      processor.class.solr_connection_url = 'https://example.com/solr/myCollection/'
       expect(subject).to be_kind_of URI
       expect(subject.to_s).to eq 'https://example.com/solr/myCollection/update/extract?extractOnly=true&wt=json&extractFormat=text'
+    end
+
+    it "raises an error if no connection url is configured" do
+      processor.class.solr_connection_url = nil    
+      expect { subject }.to raise_error(RuntimeError, %r{^No Solr connection URL configured. Set with Hydra::Derivatives::Processors::FullText.solr_connection_url})
     end
   end
 
