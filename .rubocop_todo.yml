@@ -66,3 +66,4 @@ Style/EvalWithLocation:
 Lint/SuppressedException:
   Exclude:
     - lib/hydra/derivatives/fedora.rb
+    - lib/hydra/derivatives/processors/image.rb

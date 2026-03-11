@@ -1,6 +1,13 @@
 # frozen_string_literal: true
-require 'mini_magick'
-require 'ruby-vips'
+begin
+  require 'mini_magick'
+rescue LoadError
+end
+
+begin
+  require 'ruby-vips'
+rescue LoadError
+end
 
 module Hydra::Derivatives::Processors
   class Image < Processor
