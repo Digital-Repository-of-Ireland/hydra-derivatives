@@ -5,7 +5,7 @@ describe Hydra::Derivatives::Processors::Document do
   subject { described_class.new(source_path, directives) }
 
   let(:source_path)    { File.join(fixture_path, "test.doc") }
-  let(:output_service) { Hydra::Derivatives::PersistBasicContainedOutputFileService }
+  let(:output_service) { Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService }
 
   before { allow(subject).to receive(:converted_file).and_return(converted_file) }
 

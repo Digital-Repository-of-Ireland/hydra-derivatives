@@ -66,7 +66,7 @@ describe Hydra::Derivatives::AudioDerivatives do
 
     after do
       # restore the default
-      Hydra::Derivatives.output_file_service = Hydra::Derivatives::PersistBasicContainedOutputFileService
+      Hydra::Derivatives.output_file_service = Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService
       Object.send(:remove_const, :FakeOutputService)
     end
 

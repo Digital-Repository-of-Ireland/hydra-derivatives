@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Hydra::Derivatives::PersistExternalFileOutputFileService do
+describe Hydra::Derivatives::Fedora::PersistExternalFileOutputFileService do
   before do
     class ExternalDerivativeContainerObject < ActiveFedora::Base
       has_subresource "external_derivative"

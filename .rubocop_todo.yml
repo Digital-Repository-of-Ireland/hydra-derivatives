@@ -27,6 +27,7 @@ Metrics/MethodLength:
 Naming/PredicateName:
   Exclude:
     - spec/services/tempfile_service_spec.rb
+    - spec/fedora/tempfile_service_spec.rb
 
 RSpec/AnyInstance:
   Exclude:
@@ -61,3 +62,7 @@ RSpec/VerifiedDoubles:
 Style/EvalWithLocation:
   Exclude:
     - lib/hydra/derivatives.rb
+
+Lint/SuppressedException:
+  Exclude:
+    - lib/hydra/derivatives/fedora.rb

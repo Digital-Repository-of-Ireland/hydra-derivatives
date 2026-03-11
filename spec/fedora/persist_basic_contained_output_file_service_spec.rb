@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Hydra::Derivatives::PersistBasicContainedOutputFileService do
+describe Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService do
   before(:all) do
     class BasicContainerObject < ActiveFedora::Base
       has_subresource "the_derivative_name"

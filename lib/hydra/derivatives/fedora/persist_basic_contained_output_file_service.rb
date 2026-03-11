@@ -1,10 +1,10 @@
 # frozen_string_literal: true
-module Hydra::Derivatives
+module Hydra::Derivatives::Fedora
   # This Service is an implementation of the Hydra::Derivatives::PeristOutputFileService
   # It supports basic contained files, which is the behavior associated with Fedora 3 file datastreams that were migrated to Fedora 4
   # and, at the time that this class was authored, corresponds to the behavior of ActiveFedora::Base.attach_file and ActiveFedora::Base.attached_files
   ### Rename this
-  class PersistBasicContainedOutputFileService < PersistOutputFileService
+  class PersistBasicContainedOutputFileService < Hydra::Derivatives::PersistOutputFileService
     # This method conforms to the signature of the .call method on Hydra::Derivatives::PeristOutputFileService
     # * Persists the file within the object at destination_name
     #

@@ -8,7 +8,7 @@ module Hydra::Derivatives
     # @yield [Tempfile] a temporary source file that has a lifetime of the block
     def self.call(object, options, &block)
       source_name = options.fetch(:source)
-      Hydra::Derivatives::TempfileService.create(object.send(source_name), &block)
+      Hydra::Derivatives.temp_file_service.create(object.send(source_name), &block)
     end
   end
 end

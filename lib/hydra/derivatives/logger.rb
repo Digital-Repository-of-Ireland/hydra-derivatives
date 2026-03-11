@@ -17,10 +17,10 @@ module Hydra::Derivatives
       end
 
       private
-      
-      def logger
-        ::Logger.new(STDOUT)
-      end
+
+        def logger
+          ::Logger.new(STDOUT)
+        end
     end
   end
 end

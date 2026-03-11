@@ -16,7 +16,7 @@ describe "the configuration" do
     expect(subject.temp_file_base).to eq('/tmp')
     expect(subject.fits_path).to eq('fits.sh')
     expect(subject.kdu_compress_path).to eq('kdu_compress')
-    expect(subject.output_file_service).to eq(Hydra::Derivatives::PersistBasicContainedOutputFileService)
+    expect(subject.output_file_service).to eq(Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService)
     expect(subject.source_file_service).to eq(Hydra::Derivatives::RetrieveSourceFileService)
   end
 

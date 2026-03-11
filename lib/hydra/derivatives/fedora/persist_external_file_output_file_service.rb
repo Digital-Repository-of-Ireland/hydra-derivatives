@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 require 'addressable'
 
-module Hydra::Derivatives
-  class PersistExternalFileOutputFileService < PersistOutputFileService
+module Hydra::Derivatives::Fedora
+  class PersistExternalFileOutputFileService < Hydra::Derivatives::PersistOutputFileService
     # Persists a new file at specified location that points to external content
     # @param [Hash] output information about the external derivative file
     # @option output [String] url the location of the external content

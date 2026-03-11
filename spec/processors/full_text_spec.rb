@@ -116,7 +116,7 @@ describe Hydra::Derivatives::Processors::FullText do
     end
 
     it "raises an error if no connection url is configured" do
-      processor.class.solr_connection_url = nil    
+      processor.class.solr_connection_url = nil
       expect { subject }.to raise_error(RuntimeError, %r{^No Solr connection URL configured. Set with Hydra::Derivatives::Processors::FullText.solr_connection_url})
     end
   end

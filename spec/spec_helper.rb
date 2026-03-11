@@ -19,6 +19,7 @@ require 'hydra/derivatives'
 # Resque.inline = Rails.env.test?
 require 'pry-byebug' unless ENV['CI']
 
+require 'active_fedora'
 require 'active_fedora/cleaner'
 ActiveFedora::Base.logger = Logger.new(STDOUT)
 RSpec.configure do |config|

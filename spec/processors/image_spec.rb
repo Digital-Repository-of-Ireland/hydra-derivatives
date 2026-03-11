@@ -151,7 +151,7 @@ describe Hydra::Derivatives::Processors::Image do
         end
 
         it 'converts the image' do
-          expect(Hydra::Derivatives::PersistBasicContainedOutputFileService).to receive(:call).with(kind_of(StringIO), directives)
+          expect(Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService).to receive(:call).with(kind_of(StringIO), directives)
           subject.process
         end
       end
@@ -182,7 +182,7 @@ describe Hydra::Derivatives::Processors::Image do
       let(:file_name) { File.join(fixture_path, 'test.tif') }
 
       it 'converts the image' do
-        expect(Hydra::Derivatives::PersistBasicContainedOutputFileService).to receive(:call).with(kind_of(StringIO), directives)
+        expect(Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService).to receive(:call).with(kind_of(StringIO), directives)
         subject.process
       end
     end
@@ -288,7 +288,7 @@ describe Hydra::Derivatives::Processors::Image do
         end
 
         it 'converts the image' do
-          expect(Hydra::Derivatives::PersistBasicContainedOutputFileService).to receive(:call).with(kind_of(StringIO), directives)
+          expect(Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService).to receive(:call).with(kind_of(StringIO), directives)
           subject.process
         end
       end

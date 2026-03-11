@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Hydra::Derivatives::Processors::ActiveEncode do
   let(:file_path) { File.join(fixture_path, 'videoshort.mp4') }
   let(:directives) { { url: '12345/derivative' } }
-  let(:output_file_service) { Hydra::Derivatives::PersistExternalFileOutputFileService }
+  let(:output_file_service) { Hydra::Derivatives::Fedora::PersistExternalFileOutputFileService }
   let(:options) { { output_file_service: output_file_service } }
   let(:processor) { described_class.new(file_path, directives, options) }
 

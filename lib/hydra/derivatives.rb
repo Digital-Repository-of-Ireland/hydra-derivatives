@@ -1,8 +1,6 @@
 # frozen_string_literal: true
-begin
-  require 'active_fedora'
-rescue LoadError
-end
+require 'active_support'
+require 'active_support/core_ext'
 require 'deprecation'
 
 module Hydra
@@ -32,13 +30,12 @@ module Hydra
     autoload :TempfileService
     autoload :IoDecorator
     autoload :AudioEncoder
+    autoload :Fedora
 
     autoload_under 'services' do
       autoload :RetrieveSourceFileService
       autoload :RemoteSourceFile
       autoload :PersistOutputFileService
-      autoload :PersistBasicContainedOutputFileService
-      autoload :PersistExternalFileOutputFileService
       autoload :TempfileService
       autoload :MimeTypeService
       autoload :ImageService
@@ -55,7 +52,7 @@ module Hydra
       @config = Config.new
     end
 
-    CONFIG_METHODS = %i[ffmpeg_path libreoffice_path temp_file_base fits_path kdu_compress_path
+    CONFIG_METHODS = %i[ffmpeg_path libreoffice_path temp_file_base temp_file_service fits_path kdu_compress_path
                         kdu_compress_recipes enable_ffmpeg source_file_service output_file_service active_encode_poll_time].freeze
     CONFIG_METHODS.each do |method|
       module_eval <<-RUBY

@@ -23,7 +23,7 @@ module Hydra::Derivatives
 
     # Use the output service configured for this class or default to the external file service
     def self.output_file_service
-      @output_file_service || PersistExternalFileOutputFileService
+      @output_file_service || Hydra::Derivatives::Fedora::PersistExternalFileOutputFileService
     end
 
     def self.processor_class

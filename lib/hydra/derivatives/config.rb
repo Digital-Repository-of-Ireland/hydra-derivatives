@@ -4,7 +4,7 @@ require 'tmpdir'
 module Hydra
   module Derivatives
     class Config
-      attr_writer :ffmpeg_path, :libreoffice_path, :temp_file_base,
+      attr_writer :ffmpeg_path, :libreoffice_path, :temp_file_base, :temp_file_service,
                   :source_file_service, :output_file_service, :fits_path,
                   :enable_ffmpeg, :kdu_compress_path, :kdu_compress_recipes,
                   :active_encode_poll_time
@@ -21,12 +21,16 @@ module Hydra
         @temp_file_base ||= Dir.tmpdir
       end
 
+      def temp_file_service
+        @temp_file_service ||= Hydra::Derivatives::Fedora::TempfileService
+      end
+
       def source_file_service
         @source_file_service ||= Hydra::Derivatives::RetrieveSourceFileService
       end
 
       def output_file_service
-        @output_file_service ||= Hydra::Derivatives::PersistBasicContainedOutputFileService
+        @output_file_service ||= Hydra::Derivatives::Fedora::PersistBasicContainedOutputFileService
       end
 
       def fits_path
