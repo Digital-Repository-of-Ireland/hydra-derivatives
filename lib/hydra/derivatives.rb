@@ -35,7 +35,9 @@ module Hydra
     autoload_under 'services' do
       autoload :RetrieveSourceFileService
       autoload :RemoteSourceFile
+      autoload :LocalFileService
       autoload :PersistOutputFileService
+      autoload :PersistDerivatives
       autoload :TempfileService
       autoload :MimeTypeService
       autoload :ImageService
