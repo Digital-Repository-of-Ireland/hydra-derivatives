@@ -4,7 +4,7 @@ module Hydra::Derivatives
     # @param [String] file_name path to the file
     # @param [Hash] _options
     # @yield [File] opens the file and yields it to the block
-    def self.call(file_name, _options)
+    def self.call(file_name, _options, &_block)
       File.open(file_name) do |file|
         yield(file)
       end
